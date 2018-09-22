@@ -177,6 +177,9 @@ h1 {
     transform: translate(0, -25%);
 }
 
+#star-rating li {
+    display: inline-block;
+}
 .show-overlay {	
     display: block !important;	    
     opacity: 100 !important;	

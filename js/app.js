@@ -257,9 +257,16 @@ function congratulationsPopup(){
 	}
 }
 
+// function which adds eventlistener for the click button to remove the modal
 function closeCongratulationsPopup(){
     closeButton.addEventListener("click", function(e){
         popupCongratulation.classList.remove("show-overlay");
     });
+}
+
+// function playAgain which removes the overlay modal and loads the game
+function playAgain(){
+    popupCongratulation.classList.remove("show-overlay");
+    loadGame();
 }
 
