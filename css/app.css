@@ -177,6 +177,11 @@ h1 {
     transform: translate(0, -25%);
 }
 
+.show-overlay {	
+    display: block !important;	    
+    opacity: 100 !important;	
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
     .modal.fade .modal-dialog {
         transition: none;
