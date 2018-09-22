@@ -6,6 +6,8 @@ This is a game built to test memory of the player.
 Run the demo application hosted in heroku.
 **[Play Game](https://udacity-memory-game.herokuapp.com/)**
 
+![snippet](img/game-screenshot.png)
+
 ## Table of Contents
 
 * [Instructions](#instructions)
