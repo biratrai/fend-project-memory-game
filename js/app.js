@@ -27,7 +27,7 @@ var interval;
 const stars = document.querySelectorAll(".fa-star");
 
 // declare modal
-let popupCongratulation = document.getElementById("popup-congratulation");
+let popupCongratulation = document.getElementById("congratulation-popup");
 
 // close icon in modal
 let closeButton = document.querySelector(".close");
