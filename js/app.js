@@ -13,6 +13,7 @@ let counterForMoves = document.querySelector(".moves");
 
 // variable to hold the number of open cards
 var openCards = [];
+let MAX_OPEN_CARDS = 2;
 
 // variable which holds matchedCards
 let matchedCards = document.getElementsByClassName("match");
@@ -117,7 +118,7 @@ function cardOpen() {
 
 	addOpenCard(this);
 
-	disableCard();
+	disableCard(this);
 
 	handleOpenCards();
 };
@@ -125,7 +126,7 @@ function cardOpen() {
 // Add the opnedCard to the array
 function addOpenCard(opnedCard){
 	// add the opened card into the openedCards array
-	openCards.push(opnedCard);
+    openCards.push(opnedCard);
 }
 
 // Increment the counter whenever a card is opened
@@ -156,14 +157,13 @@ function handleStarRating(){
 function handleOpenCards(){
 	// checking the number of open cards for type
 	var numberOfCards = openCards.length;
-	    if(numberOfCards === 2){
+	    if(numberOfCards === MAX_OPEN_CARDS){
 	        if(openCards[0].type === openCards[1].type){
 	            cardsMatched();
 	        } else {
 	            notMatched();
 	        }
 	}
-
 }
 
 // Function to add matched and disabled and removing the show,
@@ -181,7 +181,6 @@ function cardsMatched(){
 function notMatched(){
     openCards[0].classList.add("unmatched");
     openCards[1].classList.add("unmatched");
-    disableCard();
     hideCards();
 }
 
@@ -190,26 +189,20 @@ function hideCards(){
 	setTimeout(function(){
         openCards[0].classList.remove("show", "open", "no-event","unmatched");
         openCards[1].classList.remove("show", "open", "no-event","unmatched");
-        enableCard();
+        enableCard(openCards[0]);
+        enableCard(openCards[1]);
         openCards = [];
     },500);
 }
 
 // Function to disable cards temporarily so that it can't be clicked.
-function disableCard(){
-    Array.prototype.filter.call(allCards, function(cardElement){
-        cardElement.classList.add("disabled");
-    });
+function disableCard(cardToDisable){
+    cardToDisable.classList.add("disabled");
 }
 
 // Function to enable cards and disable matched cards.
-function enableCard(){
-    Array.prototype.filter.call(allCards, function(cardElement){
-        cardElement.classList.remove('disabled');
-        for(var i = 0; i < matchedCards.length; i++){
-            matchedCards[i].classList.add("disabled");
-        }
-    });
+function enableCard(cardToEnable){
+    cardToEnable.classList.remove('disabled');
 }
 
 // Function to set the sec, min and hour time in the timer clock using setInterval
